@@ -2,7 +2,7 @@
 body {
     margin: 0px;
   }
-  /*navbar*/
+  navbar
   .nav-container {
     position: sticky;
     z-index: 3;
@@ -16,22 +16,25 @@ body {
   }
   
   .navbar-logo {
-    justify-self: start;
+    /* justify-self: start; */
     margin-left: 20px;
     color: #fff;
     margin-top: 4vh;
     cursor: pointer;
+    font-size: 25px;
   }
   
   .ver-carrito {
+    color: #fff;
     font-size: 25px;
     margin-right: 20px;
-    margin-top: 3.5vh;
+    margin-top: 4vh;
     cursor: pointer;
   }
   
 
   /*product cards*/
+  
   .shop-content {
     display: flex;
     justify-content: space-around;
@@ -74,8 +77,9 @@ body {
   .card button:hover {
     opacity: 0.7;
   }
-  
+   
   /*modal content*/
+  
   .modal-container {
     width: 80%;
     margin: 0 10%;
@@ -87,7 +91,7 @@ body {
     flex-direction: column;
 
     align-items: center;
-    /* for the top */
+    
     position: fixed;
     overflow: auto;
     z-index: 9;
@@ -114,16 +118,7 @@ body {
   .modal-header-button {
     cursor: pointer;
   }
-/*   
-  .modal-container > .modal-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 70%;
-    margin: 10px;
-  } */
-  
+
   .modal-container > div > img {
     height: 120px;
     width: 120px;
@@ -182,14 +177,6 @@ body {
     position: absolute;
     display: none;
   }
-/*   
-  .sumar {
-    cursor: pointer;
-  }
-  
-  .restar {
-    cursor: pointer;
-  } */
 
   .buy-button{
     background-color: red;
@@ -203,4 +190,4 @@ body {
     margin-bottom: 40px;
     
   }
-  
+   

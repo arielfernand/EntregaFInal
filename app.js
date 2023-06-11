@@ -5,8 +5,22 @@ const modalContainer = document.getElementById('modal-container')
 let carrito = JSON.parse(localStorage.getItem("CarritoUser"))||[]
 
 /////// TIENDA //////
-
-productos.forEach((product) => {
+fetch ('./api.json')/// clase 16 1:55
+.then((Response)=>{
+    if (Response.ok){
+        return Response.json ();
+    }else {
+        throw new Error ('hubo un error' + Response.status)
+    }
+})
+.then((jugadores)=>{
+    // console.log (jugadores)
+// })
+// .catch((error)=>{
+//     console.log ('disculpe... mala mia')
+// })
+    
+jugadores.forEach((product) => {
     let contenedor = document.createElement("div");
     contenedor.className = 'card';
     contenedor.innerHTML = `
@@ -29,6 +43,8 @@ comprar.addEventListener('click', () => {
     ///con some le digo que si encuentra algun poroducto repetido con igual id 
     /// some me devuelve true o folse, si encuentra algo igual me devuelve true
 
+
+    
     const repetido = carrito.some((productRepe) => productRepe.id === product.id);
     ///EL MAP recorre el carrito
     if (repetido === true) {
@@ -45,17 +61,14 @@ comprar.addEventListener('click', () => {
             icon: 'success',
         })
     } else {
-        
         carrito.push({
             id: product.id,
             imagen: product.imagen,
             nombre: product.nombre,
             precio: product.precio,
             cantidad: product.cantidad,
-
         })
         localStorage.setItem ('CarritoUser', JSON.stringify(carrito))
-
         swal.fire({
             title: 'Agregado al carrito',
             text: `Agragaste unas ${product.nombre} a tu carrito`,
@@ -63,30 +76,29 @@ comprar.addEventListener('click', () => {
         })
         console.log(carrito)
     }
-
+})
+});
+})
+.catch((error)=>{
+    console.log ('disculpe... mala mia')
 })
 
-});
 
 //////////////////////////////////
 const pintarCarrito = () => {
     modalContainer.innerHTML = ""
-    modalContainer.style.display = "flex"
+    // modalContainer.style.display = "flex"
     const modalHeader = document.createElement("div");
     modalHeader.className = "modal-header";
-    modalHeader.innerHTML = `
-        <h1 class="modal-header-title">Carrito.</h1>
-    `;
+    modalHeader.innerHTML = `<h1 class="modal-header-title">Carrito.</h1>`;
     modalContainer.append(modalHeader);
 
     const modalbutton = document.createElement("h1");
     modalbutton.innerText = "x";
     modalbutton.className = "modal-header-button";
-
     modalbutton.addEventListener('click', () => {
         modalContainer.style.display = "none";
     })
-    
     modalHeader.append(modalbutton)
 
     

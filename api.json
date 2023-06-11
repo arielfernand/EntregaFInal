@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "nombre": "Messi",
+        "precio":10,
+        "imagen": "./img/zapas1.jpg",
+        "cantidad": 1 
+    },
+    {
+        "id": 2,
+        "nombre": "Aimar",
+        "precio":20,
+        "imagen": "./img/zapas2.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 3,
+        "nombre": "Cambiazzo",
+        "precio":50,
+        "imagen": "./img/zapas3.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 4,
+        "nombre": "Sabiola",
+        "precio":50,
+        "imagen": "./img/zapas4.jpg",
+        "cantidad":1
+    },
+    {
+        "id": 5,
+        "nombre": "Roman",
+        "precio":60,
+        "imagen": "./img/zapas5.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 6,
+        "nombre": "Ortega",
+        "precio":80,
+        "imagen": "./img/zapas6.jpg",
+        "cantidad":1
+    },
+    {
+        "id": 7,
+        "nombre": "Lopez",
+        "precio":90,
+        "imagen": "./img/zapas7.jpg",
+        "cantidad":1
+    }
+]
