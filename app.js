@@ -5,7 +5,7 @@ const modalContainer = document.getElementById('modal-container')
 let carrito = JSON.parse(localStorage.getItem("CarritoUser"))||[]
 
 /////// TIENDA //////
-fetch ('./api.json')/// clase 16 1:55
+fetch ('./api.json')
 .then((Response)=>{
     if (Response.ok){
         return Response.json ();
@@ -81,11 +81,11 @@ const pintarCarrito = () => {
     modalContainer.style.display = "flex"
     const modalHeader = document.createElement("div");
     modalHeader.className = "modal-header";
-    modalHeader.innerHTML = `<h1 class="modal-header-title">Carrito.</h1>`;
+    modalHeader.innerHTML = `<h1 class="modal-header-title">Tu carrito de compras</h1>`;
     modalContainer.append(modalHeader);
 
     const modalbutton = document.createElement("h1");
-    modalbutton.innerText = "x";
+    modalbutton.innerText = "Salir";
     modalbutton.className = "modal-header-button";
     modalbutton.addEventListener('click', () => {
         modalContainer.style.display = "none";
@@ -100,7 +100,7 @@ const pintarCarrito = () => {
         carritoContent.innerHTML = `
         <img src= "${product.imagen}">
         <h3> ${product.nombre}</h3>
-        <P>${product.precio} $</p>
+        <P>Precio unitario $${product.precio}</p>
         <p>Cantidad: ${product.cantidad}</p>
         <p>Sub total: $${product.cantidad * product.precio}
         
@@ -157,11 +157,17 @@ const eliminarProducto = () => {
 
 
     const terminarCompra = () => {
+       
+        carrito.map((prod) => {
+        
         swal.fire({
-            title: 'gracias por comprar ',
+            title: 'Gracias por tu compra',
+            text: '' ,
             icon: 'success',
         })
+    })
         carrito = []
-        localStorage.setItem ('carrito',JSON.stringify (carrito));
+        localStorage.setItem ('CarritoUser',JSON.stringify (carrito));
         pintarCarrito ()
+        modalContainer.style.display = "none";
     }

@@ -1,6 +1,7 @@
 
 body {
     margin: 0px;
+    background-color: #defcfc;
   }
   navbar
   .nav-container {
@@ -12,20 +13,21 @@ body {
     display: flex;
     justify-content: space-between;
     height: 12vh;
-    background-color: #595858;
+    background-color: #050505;
   }
   
   .navbar-logo {
     /* justify-self: start; */
     margin-left: 20px;
-    color: #fff;
+    color: rgb(253, 251, 251);
     margin-top: 4vh;
     cursor: pointer;
     font-size: 25px;
   }
   
   .ver-carrito {
-    color: #fff;
+    color: rgb(255, 255, 255);
+    text-decoration-color: aliceblue;
     font-size: 25px;
     margin-right: 20px;
     margin-top: 4vh;
