@@ -14,11 +14,6 @@ fetch ('./api.json')/// clase 16 1:55
     }
 })
 .then((jugadores)=>{
-    // console.log (jugadores)
-// })
-// .catch((error)=>{
-//     console.log ('disculpe... mala mia')
-// })
     
 jugadores.forEach((product) => {
     let contenedor = document.createElement("div");
@@ -40,13 +35,9 @@ jugadores.forEach((product) => {
 
 
 comprar.addEventListener('click', () => {
-    ///con some le digo que si encuentra algun poroducto repetido con igual id 
-    /// some me devuelve true o folse, si encuentra algo igual me devuelve true
+   
 
-
-    
     const repetido = carrito.some((productRepe) => productRepe.id === product.id);
-    ///EL MAP recorre el carrito
     if (repetido === true) {
         carrito.map((prod) => {
             if (prod.id === product.id) {
@@ -87,7 +78,7 @@ comprar.addEventListener('click', () => {
 //////////////////////////////////
 const pintarCarrito = () => {
     modalContainer.innerHTML = ""
-    // modalContainer.style.display = "flex"
+    modalContainer.style.display = "flex"
     const modalHeader = document.createElement("div");
     modalHeader.className = "modal-header";
     modalHeader.innerHTML = `<h1 class="modal-header-title">Carrito.</h1>`;
@@ -127,7 +118,7 @@ const pintarCarrito = () => {
 
 
     })
-    /// este es un acumulador 
+    
     const total = carrito.reduce((acumulador, elemento) => acumulador + elemento.precio * elemento.cantidad, 0);
 
     const totalCompra = document.createElement("div");
@@ -145,11 +136,6 @@ const pintarCarrito = () => {
 
 verCarrito.addEventListener("click", pintarCarrito)
 
-
-///find me ayuda a encontra el ID del producto que queremos eliminar
-///filter filtra todos lo productos del carrito que NO tenga ese ID
-/// despues into el carrito sin ese producto
-///return carritoId !== foundId/// aca me devuelve todo menos el que tiene el ID
 
 const eliminarProducto = () => {
     const foundId = carrito.find((elemento) => elemento.id);
@@ -169,23 +155,13 @@ const eliminarProducto = () => {
 }
 
 
-// const repetido2 = carrito.some((productRepe) => productRepe.id === carrito.id);
-// ///EL MAP recorre el carrito
-// if (repetido2 === true) {
-//     carrito.map((prod) => {
-//         if (prod.id === product.id) {
-//             prod.cantidad - 1
-//         }
-//     })
-// }else{
-//     eliminarProducto ()
-// }
-
-
 
     const terminarCompra = () => {
         swal.fire({
             title: 'gracias por comprar ',
             icon: 'success',
         })
+        carrito = []
+        localStorage.setItem ('carrito',JSON.stringify (carrito));
+        pintarCarrito ()
     }
